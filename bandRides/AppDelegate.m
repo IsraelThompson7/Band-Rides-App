@@ -13,6 +13,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    self.userID = [prefs objectForKey:@"userID"];
+    self.key = [prefs objectForKey:@"key"];
+    if (self.userID==nil || self.key==nil){
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"NewUserViewController"];
+        UINavigationController *myNavCon = (UINavigationController*)self.window.rootViewController;
+        [myNavCon pushViewController:vc animated:YES];
+    }
     return YES;
 }
 							
