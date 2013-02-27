@@ -33,6 +33,7 @@
 		2269469D16CB23A400EA2D35 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2269469316CB23A400EA2D35 /* AFXMLRequestOperation.m */; };
 		2269469E16CB23A400EA2D35 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2269469516CB23A400EA2D35 /* UIImageView+AFNetworking.m */; };
 		226946A116CB2EED00EA2D35 /* NewUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226946A016CB2EED00EA2D35 /* NewUserViewController.m */; };
+		22EAB44D16D5B8D000E4F11D /* bandListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EAB44C16D5B8CF00E4F11D /* bandListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,8 @@
 		2269469516CB23A400EA2D35 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		2269469F16CB2EED00EA2D35 /* NewUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUserViewController.h; sourceTree = "<group>"; };
 		226946A016CB2EED00EA2D35 /* NewUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserViewController.m; sourceTree = "<group>"; };
+		22EAB44B16D5B8CF00E4F11D /* bandListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bandListViewController.h; sourceTree = "<group>"; };
+		22EAB44C16D5B8CF00E4F11D /* bandListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bandListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				2269466316CB239900EA2D35 /* AppDelegate.h */,
 				2269466416CB239900EA2D35 /* AppDelegate.m */,
 				2269466C16CB239900EA2D35 /* MainStoryboard.storyboard */,
+				22EAB44B16D5B8CF00E4F11D /* bandListViewController.h */,
+				22EAB44C16D5B8CF00E4F11D /* bandListViewController.m */,
 				2269466F16CB239900EA2D35 /* FirstViewController.h */,
 				2269467016CB239900EA2D35 /* FirstViewController.m */,
 				2269467216CB239900EA2D35 /* first.png */,
@@ -268,6 +273,7 @@
 				2269469D16CB23A400EA2D35 /* AFXMLRequestOperation.m in Sources */,
 				2269469E16CB23A400EA2D35 /* UIImageView+AFNetworking.m in Sources */,
 				226946A116CB2EED00EA2D35 /* NewUserViewController.m in Sources */,
+				22EAB44D16D5B8D000E4F11D /* bandListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +396,7 @@
 				2269468116CB239900EA2D35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
