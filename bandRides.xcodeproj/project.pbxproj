@@ -34,6 +34,7 @@
 		22EAB44D16D5B8D000E4F11D /* bandListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EAB44C16D5B8CF00E4F11D /* bandListViewController.m */; };
 		A43CAE0B16E7C9D900DBAE74 /* ShowListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43CAE0A16E7C9D900DBAE74 /* ShowListViewController.m */; };
 		A43CAE0E16E7D0C100DBAE74 /* ShowData.m in Sources */ = {isa = PBXBuildFile; fileRef = A43CAE0D16E7D0C100DBAE74 /* ShowData.m */; };
+		A43CAE1116E7D78000DBAE74 /* BandDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43CAE1016E7D78000DBAE74 /* BandDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,8 @@
 		A43CAE0A16E7C9D900DBAE74 /* ShowListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowListViewController.m; sourceTree = "<group>"; };
 		A43CAE0C16E7D0C100DBAE74 /* ShowData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowData.h; sourceTree = "<group>"; };
 		A43CAE0D16E7D0C100DBAE74 /* ShowData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowData.m; sourceTree = "<group>"; };
+		A43CAE0F16E7D78000DBAE74 /* BandDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BandDetailsViewController.h; sourceTree = "<group>"; };
+		A43CAE1016E7D78000DBAE74 /* BandDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BandDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 				A43CAE0D16E7D0C100DBAE74 /* ShowData.m */,
 				A43CAE0916E7C9D900DBAE74 /* ShowListViewController.h */,
 				A43CAE0A16E7C9D900DBAE74 /* ShowListViewController.m */,
+				A43CAE0F16E7D78000DBAE74 /* BandDetailsViewController.h */,
+				A43CAE1016E7D78000DBAE74 /* BandDetailsViewController.m */,
 			);
 			path = bandRides;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				22EAB44D16D5B8D000E4F11D /* bandListViewController.m in Sources */,
 				A43CAE0B16E7C9D900DBAE74 /* ShowListViewController.m in Sources */,
 				A43CAE0E16E7D0C100DBAE74 /* ShowData.m in Sources */,
+				A43CAE1116E7D78000DBAE74 /* BandDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

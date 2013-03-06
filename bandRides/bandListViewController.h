@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface bandListViewController : UITableViewController
+@interface BandListViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *bandArray;
 

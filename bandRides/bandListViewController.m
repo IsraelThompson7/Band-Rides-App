@@ -8,12 +8,13 @@
 
 #import "bandListViewController.h"
 #import "AFNetworking.h"
+#import "BandDetailsViewController.h"
 
-@interface bandListViewController ()
+@interface BandListViewController ()
 
 @end
 
-@implementation bandListViewController
+@implementation BandListViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -135,6 +136,16 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    [self performSegueWithIdentifier:@"goToBandDetails" sender:indexPath];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"goToBandDetails"]) {
+        BandDetailsViewController *vc = segue.destinationViewController;
+        NSIndexPath *index = sender;
+        vc.band = self.bandArray[index.row];
+    }
+}
 @end
