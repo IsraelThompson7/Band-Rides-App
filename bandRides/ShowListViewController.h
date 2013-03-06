@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShowListViewController : UIViewController
+@interface ShowListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *showsArray;
 @end
