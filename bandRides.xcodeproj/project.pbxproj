@@ -17,10 +17,8 @@
 		2269466916CB239900EA2D35 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2269466816CB239900EA2D35 /* Default@2x.png */; };
 		2269466B16CB239900EA2D35 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2269466A16CB239900EA2D35 /* Default-568h@2x.png */; };
 		2269466E16CB239900EA2D35 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2269466C16CB239900EA2D35 /* MainStoryboard.storyboard */; };
-		2269467116CB239900EA2D35 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2269467016CB239900EA2D35 /* FirstViewController.m */; };
 		2269467316CB239900EA2D35 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 2269467216CB239900EA2D35 /* first.png */; };
 		2269467516CB239900EA2D35 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2269467416CB239900EA2D35 /* first@2x.png */; };
-		2269467816CB239900EA2D35 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2269467716CB239900EA2D35 /* SecondViewController.m */; };
 		2269467A16CB239900EA2D35 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 2269467916CB239900EA2D35 /* second.png */; };
 		2269467C16CB239900EA2D35 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2269467B16CB239900EA2D35 /* second@2x.png */; };
 		2269469616CB23A400EA2D35 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2269468416CB23A400EA2D35 /* AFHTTPClient.m */; };
@@ -34,6 +32,7 @@
 		2269469E16CB23A400EA2D35 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2269469516CB23A400EA2D35 /* UIImageView+AFNetworking.m */; };
 		226946A116CB2EED00EA2D35 /* NewUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226946A016CB2EED00EA2D35 /* NewUserViewController.m */; };
 		22EAB44D16D5B8D000E4F11D /* bandListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EAB44C16D5B8CF00E4F11D /* bandListViewController.m */; };
+		A43CAE0B16E7C9D900DBAE74 /* ShowListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43CAE0A16E7C9D900DBAE74 /* ShowListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,12 +50,8 @@
 		2269466816CB239900EA2D35 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		2269466A16CB239900EA2D35 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2269466D16CB239900EA2D35 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		2269466F16CB239900EA2D35 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		2269467016CB239900EA2D35 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		2269467216CB239900EA2D35 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		2269467416CB239900EA2D35 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		2269467616CB239900EA2D35 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		2269467716CB239900EA2D35 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		2269467916CB239900EA2D35 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		2269467B16CB239900EA2D35 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		2269468316CB23A400EA2D35 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -82,6 +77,8 @@
 		226946A016CB2EED00EA2D35 /* NewUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserViewController.m; sourceTree = "<group>"; };
 		22EAB44B16D5B8CF00E4F11D /* bandListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bandListViewController.h; sourceTree = "<group>"; };
 		22EAB44C16D5B8CF00E4F11D /* bandListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bandListViewController.m; sourceTree = "<group>"; };
+		A43CAE0916E7C9D900DBAE74 /* ShowListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowListViewController.h; sourceTree = "<group>"; };
+		A43CAE0A16E7C9D900DBAE74 /* ShowListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,17 +131,15 @@
 				2269466C16CB239900EA2D35 /* MainStoryboard.storyboard */,
 				22EAB44B16D5B8CF00E4F11D /* bandListViewController.h */,
 				22EAB44C16D5B8CF00E4F11D /* bandListViewController.m */,
-				2269466F16CB239900EA2D35 /* FirstViewController.h */,
-				2269467016CB239900EA2D35 /* FirstViewController.m */,
 				2269467216CB239900EA2D35 /* first.png */,
 				2269467416CB239900EA2D35 /* first@2x.png */,
-				2269467616CB239900EA2D35 /* SecondViewController.h */,
-				2269467716CB239900EA2D35 /* SecondViewController.m */,
 				2269467916CB239900EA2D35 /* second.png */,
 				2269467B16CB239900EA2D35 /* second@2x.png */,
 				2269465B16CB239900EA2D35 /* Supporting Files */,
 				2269469F16CB2EED00EA2D35 /* NewUserViewController.h */,
 				226946A016CB2EED00EA2D35 /* NewUserViewController.m */,
+				A43CAE0916E7C9D900DBAE74 /* ShowListViewController.h */,
+				A43CAE0A16E7C9D900DBAE74 /* ShowListViewController.m */,
 			);
 			path = bandRides;
 			sourceTree = "<group>";
@@ -261,8 +256,6 @@
 			files = (
 				2269466116CB239900EA2D35 /* main.m in Sources */,
 				2269466516CB239900EA2D35 /* AppDelegate.m in Sources */,
-				2269467116CB239900EA2D35 /* FirstViewController.m in Sources */,
-				2269467816CB239900EA2D35 /* SecondViewController.m in Sources */,
 				2269469616CB23A400EA2D35 /* AFHTTPClient.m in Sources */,
 				2269469716CB23A400EA2D35 /* AFHTTPRequestOperation.m in Sources */,
 				2269469816CB23A400EA2D35 /* AFImageRequestOperation.m in Sources */,
@@ -274,6 +267,7 @@
 				2269469E16CB23A400EA2D35 /* UIImageView+AFNetworking.m in Sources */,
 				226946A116CB2EED00EA2D35 /* NewUserViewController.m in Sources */,
 				22EAB44D16D5B8D000E4F11D /* bandListViewController.m in Sources */,
+				A43CAE0B16E7C9D900DBAE74 /* ShowListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

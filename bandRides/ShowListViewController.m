@@ -1,23 +1,24 @@
 //
-//  FirstViewController.m
+//  ShowListViewController.m
 //  bandRides
 //
-//  Created by DJ on 2/12/13.
+//  Created by Marc Kluver on 3/6/13.
 //  Copyright (c) 2013 DJ Tarazona. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "ShowListViewController.h"
 
-@interface FirstViewController ()
+@interface ShowListViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation ShowListViewController
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
