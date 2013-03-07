@@ -32,6 +32,9 @@
 		2269469E16CB23A400EA2D35 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2269469516CB23A400EA2D35 /* UIImageView+AFNetworking.m */; };
 		226946A116CB2EED00EA2D35 /* NewUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226946A016CB2EED00EA2D35 /* NewUserViewController.m */; };
 		22EAB44D16D5B8D000E4F11D /* bandListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EAB44C16D5B8CF00E4F11D /* bandListViewController.m */; };
+		74A37BA316E82686004A20F9 /* BaseShowsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A37BA216E82686004A20F9 /* BaseShowsDataSource.m */; };
+		74A37BA616E826A9004A20F9 /* AllShowsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A37BA516E826A9004A20F9 /* AllShowsDataSource.m */; };
+		74A37BA916E826C4004A20F9 /* OneBandShowDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A37BA816E826C4004A20F9 /* OneBandShowDataSource.m */; };
 		A43CAE0B16E7C9D900DBAE74 /* ShowListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43CAE0A16E7C9D900DBAE74 /* ShowListViewController.m */; };
 		A43CAE0E16E7D0C100DBAE74 /* ShowData.m in Sources */ = {isa = PBXBuildFile; fileRef = A43CAE0D16E7D0C100DBAE74 /* ShowData.m */; };
 		A43CAE1116E7D78000DBAE74 /* BandDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43CAE1016E7D78000DBAE74 /* BandDetailsViewController.m */; };
@@ -79,6 +82,12 @@
 		226946A016CB2EED00EA2D35 /* NewUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserViewController.m; sourceTree = "<group>"; };
 		22EAB44B16D5B8CF00E4F11D /* bandListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bandListViewController.h; sourceTree = "<group>"; };
 		22EAB44C16D5B8CF00E4F11D /* bandListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bandListViewController.m; sourceTree = "<group>"; };
+		74A37BA116E82686004A20F9 /* BaseShowsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseShowsDataSource.h; sourceTree = "<group>"; };
+		74A37BA216E82686004A20F9 /* BaseShowsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseShowsDataSource.m; sourceTree = "<group>"; };
+		74A37BA416E826A8004A20F9 /* AllShowsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllShowsDataSource.h; sourceTree = "<group>"; };
+		74A37BA516E826A9004A20F9 /* AllShowsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllShowsDataSource.m; sourceTree = "<group>"; };
+		74A37BA716E826C4004A20F9 /* OneBandShowDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneBandShowDataSource.h; sourceTree = "<group>"; };
+		74A37BA816E826C4004A20F9 /* OneBandShowDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneBandShowDataSource.m; sourceTree = "<group>"; };
 		A43CAE0916E7C9D900DBAE74 /* ShowListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowListViewController.h; sourceTree = "<group>"; };
 		A43CAE0A16E7C9D900DBAE74 /* ShowListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowListViewController.m; sourceTree = "<group>"; };
 		A43CAE0C16E7D0C100DBAE74 /* ShowData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowData.h; sourceTree = "<group>"; };
@@ -150,6 +159,12 @@
 				A43CAE0A16E7C9D900DBAE74 /* ShowListViewController.m */,
 				A43CAE0F16E7D78000DBAE74 /* BandDetailsViewController.h */,
 				A43CAE1016E7D78000DBAE74 /* BandDetailsViewController.m */,
+				74A37BA116E82686004A20F9 /* BaseShowsDataSource.h */,
+				74A37BA216E82686004A20F9 /* BaseShowsDataSource.m */,
+				74A37BA416E826A8004A20F9 /* AllShowsDataSource.h */,
+				74A37BA516E826A9004A20F9 /* AllShowsDataSource.m */,
+				74A37BA716E826C4004A20F9 /* OneBandShowDataSource.h */,
+				74A37BA816E826C4004A20F9 /* OneBandShowDataSource.m */,
 			);
 			path = bandRides;
 			sourceTree = "<group>";
@@ -280,6 +295,9 @@
 				A43CAE0B16E7C9D900DBAE74 /* ShowListViewController.m in Sources */,
 				A43CAE0E16E7D0C100DBAE74 /* ShowData.m in Sources */,
 				A43CAE1116E7D78000DBAE74 /* BandDetailsViewController.m in Sources */,
+				74A37BA316E82686004A20F9 /* BaseShowsDataSource.m in Sources */,
+				74A37BA616E826A9004A20F9 /* AllShowsDataSource.m in Sources */,
+				74A37BA916E826C4004A20F9 /* OneBandShowDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

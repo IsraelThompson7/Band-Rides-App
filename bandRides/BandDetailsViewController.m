@@ -7,6 +7,8 @@
 //
 
 #import "BandDetailsViewController.h"
+#import "ShowListViewController.h"
+#import "OneBandShowDataSource.h"
 
 @interface BandDetailsViewController ()
 
@@ -20,13 +22,21 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Band Schedule" style:UIBarButtonItemStyleBordered target:self action:@selector(bandScheduleClicked)];
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Band Schedule" style:UIBarButtonItemStyleBordered
+                                                              target:self action:@selector(bandScheduleClicked)];
     self.navigationItem.rightBarButtonItem = button;
 }
 
 - (void)bandScheduleClicked
 {
-    NSLog(@"aww yiss");
+    [self performSegueWithIdentifier:@"segueToShows" sender:nil];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"segueToShows"]){
+        ShowListViewController *vc = segue.destinationViewController;
+        vc.dataSource = [[OneBandShowDataSource alloc] initWithBand:self.band];
+    }
 }
 
 - (void)didReceiveMemoryWarning

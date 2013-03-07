@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BaseShowsDataSource;
 
-@interface ShowListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ShowListViewController : UIViewController 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *showsArray;
+@property (retain,nonatomic) BaseShowsDataSource *dataSource;
+
+
 @end
