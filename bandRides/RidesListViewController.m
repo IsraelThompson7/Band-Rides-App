@@ -8,6 +8,8 @@
 
 #import "RidesListViewController.h"
 #import "AFNetworking.h"
+#import "AppDelegate.h"
+#import "ShowData.h"
 
 @interface RidesListViewController ()
 
@@ -54,7 +56,76 @@
     }];
     
     [networkOp start];
+
+    
 }
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 120)];
+    
+    UIButton *haveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    haveButton.frame = CGRectMake(20, 20, 100, 100);
+    [haveButton addTarget:self action:@selector(wantButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [haveButton setTitle:@"I want a ride" forState:UIControlStateNormal];
+    [view addSubview:haveButton];
+    
+    UIButton *wantButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    wantButton.frame = CGRectMake(200, 20, 100, 100);
+    [wantButton addTarget:self action:@selector(haveButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [wantButton setTitle:@"I have a ride" forState:UIControlStateNormal];
+    [view addSubview:wantButton];
+
+    return view;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 110;
+}
+
+-(void)haveButtonPressed{
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Seats Available" message:@"How many people do you have a ride for" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    UITextField *theTextField =  [alert textFieldAtIndex:0];
+    theTextField.placeholder = @"Enter the number of empty seats";
+    theTextField.keyboardType = UIKeyboardTypeNumberPad;    
+    [alert show];
+
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    int forHowMany = [[[alertView textFieldAtIndex:0] text] intValue];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://kluver.homeunix.com:8080/~marc/ride.php"]];
+    
+    AppDelegate *ad = [[UIApplication sharedApplication] delegate];
+    NSString *postData = [NSString stringWithFormat:@"showID=%@&userID=%@&key=%@&howMany=%d",self.show.bandScheduleID,ad.userID,ad.key,forHowMany];
+    [request setHTTPMethod: @"POST"];
+    [request setValue:[NSString stringWithFormat:@"%d", [postData length]] forHTTPHeaderField:@"Content-length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    [request setHTTPBody: [postData dataUsingEncoding: NSUTF8StringEncoding]];
+
+
+    NSLog(@"%@",postData);
+    
+    AFHTTPRequestOperation *networkOp = [[AFHTTPRequestOperation alloc]
+                                         initWithRequest:request];
+    
+    [networkOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",[[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    
+    [networkOp start];
+
+}
+
+-(void)wantButtonPressed{
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {

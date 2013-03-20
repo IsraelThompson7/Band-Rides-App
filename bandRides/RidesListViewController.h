@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ShowData.h"
 
-@interface RidesListViewController : UITableViewController
+@interface RidesListViewController : UITableViewController <UIAlertViewDelegate>
 
 @property (nonatomic, strong) ShowData *show;
 @property (nonatomic, strong) NSArray *ridesArray;
