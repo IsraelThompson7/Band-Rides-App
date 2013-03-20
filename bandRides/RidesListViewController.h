@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ShowData.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface RidesListViewController : UITableViewController <UIAlertViewDelegate>
+@interface RidesListViewController : UITableViewController <UIAlertViewDelegate,MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) ShowData *show;
 @property (nonatomic, strong) NSArray *ridesArray;

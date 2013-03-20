@@ -10,6 +10,8 @@
 #import "AFNetworking.h"
 #import "AppDelegate.h"
 #import "ShowData.h"
+#import "UIAlertView+BlockAdditions.h"
+
 
 @interface RidesListViewController ()
 
@@ -39,9 +41,11 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     NSLog(@"%@", self.show);
-    
-    NSString *urlString = [NSString stringWithFormat:@"http://kluver.homeunix.com:8080/~marc/rides.php?json&showID=1%@", self.show.bandScheduleID];
-    
+    [self reloadData];
+}
+
+-(void)reloadData{
+    NSString *urlString = [NSString stringWithFormat:@"http://kluver.homeunix.com:8080/~marc/rides.php?json&showID=%@", self.show.bandScheduleID];
     AFJSONRequestOperation *networkOp = [[AFJSONRequestOperation alloc]
                                          initWithRequest:[[NSURLRequest alloc] initWithURL:
                                                           [NSURL URLWithString:urlString]]];
@@ -57,12 +61,12 @@
     
     [networkOp start];
 
-    
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 120)];
+    view.backgroundColor = [UIColor grayColor];
     
     UIButton *haveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     haveButton.frame = CGRectMake(20, 20, 100, 100);
@@ -80,7 +84,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 110;
+    return 130;
 }
 
 -(void)haveButtonPressed{
@@ -114,6 +118,7 @@
     
     [networkOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",[[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding]);
+        [self reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);
     }];
@@ -205,13 +210,73 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [UIAlertView showAlertWithTitle: @"fdsfsd"
+                            message: @"How to contact"
+                  cancelButtonTitle: @"cancel"
+                  otherButtonTitles: @[@"Email",@"SMS",@"Call"]
+                    completionBlock: ^(UIAlertView* alert, NSUInteger buttonIndex ) {
+                        if ( buttonIndex == alert.cancelButtonIndex )
+                        {
+                            
+                        }
+                        else
+                        {
+                            switch (buttonIndex) {
+                                case 1:
+                                    [self sendMail:self.ridesArray[indexPath.row]];
+                                    break;
+                                case 2:
+                                    [self sendSMS:self.ridesArray[indexPath.row]];
+                                    break;
+                                case 3:
+                                    [self call:self.ridesArray[indexPath.row]];
+                                default:
+                                    break;
+                            }
+                        }
+                    }];    
+}
+
+
+-(void) sendMail:(NSDictionary*)ride {
+    MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+    controller.mailComposeDelegate = self;
+    [controller setSubject:@"My Subject"];
+    
+    [controller setToRecipients:@[ride[@"userEmail"]]];
+    [controller setMessageBody:@"Hello there." isHTML:NO];
+    if (controller) [self presentViewController:controller animated:YES completion:^{
+        NSLog(@"completed");
+    }];
+}
+
+-(void) sendSMS:(NSDictionary*)ride {
+    MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+    controller.mailComposeDelegate = self;
+    [controller setSubject:@"My Subject"];
+    
+    [controller setToRecipients:@[ride[@"userCell"]]];
+    [controller setMessageBody:@"Hello there." isHTML:NO];
+    if (controller) [self presentViewController:controller animated:YES completion:^{
+        NSLog(@"completed");
+    }];
+}
+
+-(void) call:(NSDictionary*)ride {
+    NSString *telURL = [NSString stringWithFormat:@"tel:%@",ride[@"userCell"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telURL]];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error;
+{
+    if (result == MFMailComposeResultSent) {
+        NSLog(@"It's away!");
+    }
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"Closed out the mail window");
+    }];
 }
 
 @end

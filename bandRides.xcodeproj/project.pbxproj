@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4A7220516FA601D006EEF45 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A7220416FA601D006EEF45 /* MessageUI.framework */; };
+		A4A7220616FA612D006EEF45 /* UIAlertView+BlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A7220316FA5F66006EEF45 /* UIAlertView+BlockAdditions.m */; };
 		F70A7DCF16D5B8EB0093965E /* BandListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70A7DCE16D5B8EB0093965E /* BandListViewController.m */; };
 		F742A3C216DEE737000AA09C /* ShowListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F742A3C116DEE737000AA09C /* ShowListViewController.m */; };
 		F742A3C516DEEC8D000AA09C /* ShowData.m in Sources */ = {isa = PBXBuildFile; fileRef = F742A3C416DEEC8D000AA09C /* ShowData.m */; };
@@ -42,6 +44,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4A7220216FA5F66006EEF45 /* UIAlertView+BlockAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlockAdditions.h"; sourceTree = "<group>"; };
+		A4A7220316FA5F66006EEF45 /* UIAlertView+BlockAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+BlockAdditions.m"; sourceTree = "<group>"; };
+		A4A7220416FA601D006EEF45 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F70A7DCD16D5B8EB0093965E /* BandListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BandListViewController.h; sourceTree = "<group>"; };
 		F70A7DCE16D5B8EB0093965E /* BandListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BandListViewController.m; sourceTree = "<group>"; };
 		F742A3C016DEE737000AA09C /* ShowListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowListViewController.h; sourceTree = "<group>"; };
@@ -104,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A7220516FA601D006EEF45 /* MessageUI.framework in Frameworks */,
 				F788C94716CB21FF00D9D550 /* UIKit.framework in Frameworks */,
 				F788C94916CB21FF00D9D550 /* Foundation.framework in Frameworks */,
 				F788C94B16CB21FF00D9D550 /* CoreGraphics.framework in Frameworks */,
@@ -116,6 +122,7 @@
 		F788C93A16CB21FF00D9D550 = {
 			isa = PBXGroup;
 			children = (
+				A4A7220416FA601D006EEF45 /* MessageUI.framework */,
 				F788C94C16CB21FF00D9D550 /* bandRides */,
 				F788C94516CB21FF00D9D550 /* Frameworks */,
 				F788C94416CB21FF00D9D550 /* Products */,
@@ -143,6 +150,8 @@
 		F788C94C16CB21FF00D9D550 /* bandRides */ = {
 			isa = PBXGroup;
 			children = (
+				A4A7220216FA5F66006EEF45 /* UIAlertView+BlockAdditions.h */,
+				A4A7220316FA5F66006EEF45 /* UIAlertView+BlockAdditions.m */,
 				F788C97416CB230E00D9D550 /* AFNetworking */,
 				F788C95516CB21FF00D9D550 /* AppDelegate.h */,
 				F788C95616CB21FF00D9D550 /* AppDelegate.m */,
@@ -304,6 +313,7 @@
 				F7FACB3916E8269F00341607 /* AllShowsDataSource.m in Sources */,
 				F7FACB3C16E826C500341607 /* OneBandShowDataSource.m in Sources */,
 				F74F871816F14DE500CD0B8F /* RidesListViewController.m in Sources */,
+				A4A7220616FA612D006EEF45 /* UIAlertView+BlockAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
