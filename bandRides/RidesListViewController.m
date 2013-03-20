@@ -1,26 +1,34 @@
 //
-//  BandListViewController.m
+//  RidesListViewController.m
 //  bandRides
 //
-//  Created by Kevin Strong on 2/20/13.
+//  Created by Kevin Strong on 3/13/13.
 //  Copyright (c) 2013 Kevin Strong. All rights reserved.
 //
 
-#import "BandListViewController.h"
+#import "RidesListViewController.h"
 #import "AFNetworking.h"
-#import "BandDetailsViewController.h"
 
-@interface BandListViewController ()
+@interface RidesListViewController ()
 
 @end
 
-@implementation BandListViewController
+@implementation RidesListViewController
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.bandArray = nil;
+    self.ridesArray = nil;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -28,14 +36,18 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    NSString *urlString = @"http://kluver.homeunix.com:8080/~marc/bands.php?json";
+    NSLog(@"%@", self.show);
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://kluver.homeunix.com:8080/~marc/rides.php?json&showID=1%@", self.show.bandScheduleID];
     
     AFJSONRequestOperation *networkOp = [[AFJSONRequestOperation alloc]
                                          initWithRequest:[[NSURLRequest alloc] initWithURL:
                                                           [NSURL URLWithString:urlString]]];
     
     [networkOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.bandArray = responseObject[@"results"];
+        NSLog(@"%@", responseObject);
+        
+        self.ridesArray = responseObject[@"rides"];
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);
@@ -61,19 +73,20 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if (self.bandArray == nil) return 0;
-    return [self.bandArray count];
+    if (self.ridesArray == nil) return 0;
+    return [self.ridesArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ShowCell";
+    static NSString *CellIdentifier = @"rideCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSDictionary *band = self.bandArray[indexPath.row];
-    cell.textLabel.text = band[@"name"];
-    cell.detailTextLabel.text = band[@"description"];
-    cell.tag = [band[@"bandID"] intValue];
+    // Configure the cell...
+    NSDictionary *ride = self.ridesArray[indexPath.row];
+    cell.textLabel.text = ride[@"userCell"];
+    cell.detailTextLabel.text = ride[@"userEmail"];
+    cell.tag = [ride[@"usersName"] intValue];
     
     return cell;
 }
@@ -128,17 +141,6 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-    
-    [self performSegueWithIdentifier:@"goToBandDetails" sender:indexPath];
-}
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"goToBandDetails"]) {
-        BandDetailsViewController *vc = segue.destinationViewController;
-        NSIndexPath *index = sender;
-        vc.band = self.bandArray[index.row];
-    }
 }
 
 @end

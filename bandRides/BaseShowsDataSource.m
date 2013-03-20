@@ -2,8 +2,8 @@
 //  BaseShowsDataSource.m
 //  bandRides
 //
-//  Created by Marc Kluver on 3/6/13.
-//  Copyright (c) 2013 DJ Tarazona. All rights reserved.
+//  Created by Kevin Strong on 3/6/13.
+//  Copyright (c) 2013 Kevin Strong. All rights reserved.
 //
 
 #import "BaseShowsDataSource.h"
@@ -11,13 +11,11 @@
 
 @implementation BaseShowsDataSource
 
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NSLog(@"sup");
+    [self.vc performSegueWithIdentifier:@"viewRidesList" sender:indexPath];
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -37,4 +35,5 @@
     
     return cell;
 }
+
 @end

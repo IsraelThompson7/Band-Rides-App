@@ -2,8 +2,8 @@
 //  AllShowsDataSource.m
 //  bandRides
 //
-//  Created by Marc Kluver on 3/6/13.
-//  Copyright (c) 2013 DJ Tarazona. All rights reserved.
+//  Created by Kevin Strong on 3/6/13.
+//  Copyright (c) 2013 Kevin Strong. All rights reserved.
 //
 
 #import "AllShowsDataSource.h"
@@ -12,8 +12,9 @@
 
 @implementation AllShowsDataSource
 
--(id) init {
-    if (self = [super init]){
+- (id)init
+{
+    if (self = [super init]) {
         self.showsArray = nil;
         
         NSString *urlString = @"http://kluver.homeunix.com:8080/~marc/shows.php?json";
@@ -49,8 +50,8 @@
         }];
         
         [networkOp start];
-
     }
+    
     return self;
 }
 

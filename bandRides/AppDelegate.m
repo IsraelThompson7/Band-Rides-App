@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  bandRides
 //
-//  Created by DJ on 2/12/13.
-//  Copyright (c) 2013 DJ Tarazona. All rights reserved.
+//  Created by Kevin Strong on 2/12/13.
+//  Copyright (c) 2013 Kevin Strong. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -16,11 +16,15 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     self.userID = [prefs objectForKey:@"userID"];
     self.key = [prefs objectForKey:@"key"];
-    if (self.userID==nil || self.key==nil){
+    
+    if (self.userID == nil || self.key == nil) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"NewUserViewController"];
         UINavigationController *myNavCon = (UINavigationController*)self.window.rootViewController;
         [myNavCon pushViewController:vc animated:YES];
+    }
+    else {
+        NSLog(@"userID: %@ key: %@", self.userID, self.key);
     }
     return YES;
 }

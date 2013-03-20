@@ -1,15 +1,13 @@
 //
-//  bandListViewController.h
+//  BandListViewController.h
 //  bandRides
 //
-//  Created by DJ on 2/20/13.
-//  Copyright (c) 2013 DJ Tarazona. All rights reserved.
+//  Created by Kevin Strong on 2/20/13.
+//  Copyright (c) 2013 Kevin Strong. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface BandListViewController : UITableViewController
-
 @property (nonatomic, strong) NSArray *bandArray;
-
 @end

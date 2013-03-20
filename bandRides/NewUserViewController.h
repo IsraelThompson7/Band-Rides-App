@@ -2,18 +2,24 @@
 //  NewUserViewController.h
 //  bandRides
 //
-//  Created by DJ on 2/12/13.
-//  Copyright (c) 2013 DJ Tarazona. All rights reserved.
+//  Created by Kevin Strong on 2/12/13.
+//  Copyright (c) 2013 Kevin Strong. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface NewUserViewController : UIViewController
+@interface NewUserViewController : UIViewController 
 
 @property (weak, nonatomic) IBOutlet UITextField *name;
-@property (weak, nonatomic) IBOutlet UITextField *cell;
+@property (weak, nonatomic) IBOutlet UITextField *phone;
 @property (weak, nonatomic) IBOutlet UITextField *email;
+@property (weak, nonatomic) IBOutlet UITextField *address;
+@property (weak, nonatomic) IBOutlet UITextField *city;
+
+@property int punched;
+
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
 - (IBAction)submit:(id)sender;
-
+- (IBAction)punch:(id)sender;
 @end

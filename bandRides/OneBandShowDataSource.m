@@ -2,8 +2,8 @@
 //  OneBandShowDataSource.m
 //  bandRides
 //
-//  Created by Marc Kluver on 3/6/13.
-//  Copyright (c) 2013 DJ Tarazona. All rights reserved.
+//  Created by Kevin Strong on 3/6/13.
+//  Copyright (c) 2013 Kevin Strong. All rights reserved.
 //
 
 #import "OneBandShowDataSource.h"
@@ -12,11 +12,12 @@
 
 @implementation OneBandShowDataSource
 
--(id) initWithBand:(NSDictionary*)band {
-    if (self = [super init]){
+- (id)initWithBand:(NSDictionary*)band
+{
+    if (self = [super init]) {
         self.showsArray = nil;
         
-        NSString *urlString = [NSString stringWithFormat:@"http://kluver.homeunix.com:8080/~marc/shows.php?json&bandID=%@",band[@"bandID"]];
+        NSString *urlString = [NSString stringWithFormat:@"http://kluver.homeunix.com:8080/~marc/shows.php?json&bandID=%@", band[@"bandID"]];
         
         AFJSONRequestOperation *networkOp = [[AFJSONRequestOperation alloc]
                                              initWithRequest:[[NSURLRequest alloc] initWithURL:
@@ -49,8 +50,8 @@
         }];
         
         [networkOp start];
-
     }
+    
     return self;
 }
 

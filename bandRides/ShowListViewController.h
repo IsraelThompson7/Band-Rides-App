@@ -2,8 +2,8 @@
 //  ShowListViewController.h
 //  bandRides
 //
-//  Created by Marc Kluver on 3/6/13.
-//  Copyright (c) 2013 DJ Tarazona. All rights reserved.
+//  Created by Kevin Strong on 2/27/13.
+//  Copyright (c) 2013 Kevin Strong. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -12,7 +12,6 @@
 @interface ShowListViewController : UIViewController 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (retain,nonatomic) BaseShowsDataSource *dataSource;
-
+@property (strong, nonatomic) BaseShowsDataSource *dataSource;
 
 @end
