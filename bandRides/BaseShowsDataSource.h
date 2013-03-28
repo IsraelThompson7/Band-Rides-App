@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ShowListViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface BaseShowsDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 
