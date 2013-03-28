@@ -13,6 +13,6 @@
 @interface RidesListViewController : UITableViewController <UIAlertViewDelegate,MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) ShowData *show;
-@property (nonatomic, strong) NSArray *ridesArray;
+@property (nonatomic, strong) NSMutableArray *ridesArray;
 
 @end

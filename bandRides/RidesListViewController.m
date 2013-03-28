@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import "ShowData.h"
 #import "UIAlertView+BlockAdditions.h"
-
+#import "Ride.h"
 
 @interface RidesListViewController ()
 
@@ -53,7 +53,19 @@
     [networkOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", responseObject);
         
-        self.ridesArray = responseObject[@"rides"];
+        self.ridesArray = [NSMutableArray new];
+        
+        for (NSDictionary *dict in responseObject[@"rides"]){
+            Ride *r = [Ride new];
+            r.howMany = [dict[@"howMany"] intValue];
+            r.userCell = dict[@"userCell"];
+            r.userEmail = dict[@"userEmail"];
+            r.showAddress = dict[@"ShowAddress"];
+            r.comments = dict[@"comments"];
+            [self.ridesArray addObject:r];
+        }
+        
+        
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);
@@ -159,10 +171,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    NSDictionary *ride = self.ridesArray[indexPath.row];
-    cell.textLabel.text = ride[@"userCell"];
-    cell.detailTextLabel.text = ride[@"userEmail"];
-    cell.tag = [ride[@"usersName"] intValue];
+    Ride *ride = self.ridesArray[indexPath.row];
+    cell.textLabel.text = ride.userCell;
+    cell.detailTextLabel.text = ride.userEmail;
+
     
     return cell;
 }
