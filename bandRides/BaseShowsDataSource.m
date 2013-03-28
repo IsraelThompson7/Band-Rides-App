@@ -15,6 +15,7 @@
 {
     NSLog(@"sup");
     [self.vc performSegueWithIdentifier:@"viewRidesList" sender:indexPath];
+    self.path = indexPath;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -35,5 +36,11 @@
     
     return cell;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+
 
 @end

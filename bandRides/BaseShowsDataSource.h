@@ -13,5 +13,6 @@
 
 @property (strong, nonatomic) NSMutableArray *showsArray;
 @property (strong, nonatomic) ShowListViewController *vc;
+@property (nonatomic,strong) NSIndexPath *path;
 
 @end
