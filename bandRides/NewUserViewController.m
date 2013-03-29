@@ -47,6 +47,10 @@
     [self.scrollView addGestureRecognizer:tap];
     
     [self registerForKeyboardNotifications];
+    
+    //Disable the navigation back button
+    self.navigationItem.leftBarButtonItem = nil;
+    
 }
 
 -(void)registerForKeyboardNotifications
