@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "NSString+URLEncoding.h"
 
+//I downloaded this file from http://www.radulucaciu.ro/iphone-autocomplete-class/5/
+#import "Autocomplete.h"
+
 @interface NewUserViewController : UIViewController 
 
 @property (weak, nonatomic) IBOutlet UITextField *name;
