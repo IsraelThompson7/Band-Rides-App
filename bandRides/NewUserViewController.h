@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSString+URLEncoding.h"
 
 @interface NewUserViewController : UIViewController 
 
@@ -15,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *address;
 @property (weak, nonatomic) IBOutlet UITextField *city;
+
+@property (weak, nonatomic) UITextField *activeField;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property int punched;
 
