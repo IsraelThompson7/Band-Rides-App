@@ -7,9 +7,11 @@
 //
 
 #import "BaseShowsDataSource.h"
+#import "BandData.h"
+
 
 @interface OneBandShowDataSource : BaseShowsDataSource
 
-- (id)initWithBand:(NSDictionary*)band;
+- (id)initWithBand:(BandData*)band;
 
 @end

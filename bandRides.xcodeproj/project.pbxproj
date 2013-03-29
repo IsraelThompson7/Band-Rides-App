@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		74AFF9981703B82D00D8973B /* Ride.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AFF9971703B82D00D8973B /* Ride.m */; };
 		74AFF99B1703BF3100D8973B /* UIActionSheet+BlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AFF99A1703BF3100D8973B /* UIActionSheet+BlockAdditions.m */; };
+		74AFF99E1703C74B00D8973B /* BandData.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AFF99D1703C74B00D8973B /* BandData.m */; };
 		A4A7220516FA601D006EEF45 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A7220416FA601D006EEF45 /* MessageUI.framework */; };
 		A4A7220616FA612D006EEF45 /* UIAlertView+BlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A7220316FA5F66006EEF45 /* UIAlertView+BlockAdditions.m */; };
 		F70A7DCF16D5B8EB0093965E /* BandListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70A7DCE16D5B8EB0093965E /* BandListViewController.m */; };
@@ -50,6 +51,8 @@
 		74AFF9971703B82D00D8973B /* Ride.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ride.m; sourceTree = "<group>"; };
 		74AFF9991703BF3100D8973B /* UIActionSheet+BlockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+BlockAdditions.h"; sourceTree = "<group>"; };
 		74AFF99A1703BF3100D8973B /* UIActionSheet+BlockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+BlockAdditions.m"; sourceTree = "<group>"; };
+		74AFF99C1703C74B00D8973B /* BandData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BandData.h; sourceTree = "<group>"; };
+		74AFF99D1703C74B00D8973B /* BandData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BandData.m; sourceTree = "<group>"; };
 		A4A7220216FA5F66006EEF45 /* UIAlertView+BlockAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlockAdditions.h"; sourceTree = "<group>"; };
 		A4A7220316FA5F66006EEF45 /* UIAlertView+BlockAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+BlockAdditions.m"; sourceTree = "<group>"; };
 		A4A7220416FA601D006EEF45 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -189,6 +192,8 @@
 				F74F871716F14DE500CD0B8F /* RidesListViewController.m */,
 				74AFF9961703B82D00D8973B /* Ride.h */,
 				74AFF9971703B82D00D8973B /* Ride.m */,
+				74AFF99C1703C74B00D8973B /* BandData.h */,
+				74AFF99D1703C74B00D8973B /* BandData.m */,
 			);
 			path = bandRides;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 				A4A7220616FA612D006EEF45 /* UIAlertView+BlockAdditions.m in Sources */,
 				74AFF9981703B82D00D8973B /* Ride.m in Sources */,
 				74AFF99B1703BF3100D8973B /* UIActionSheet+BlockAdditions.m in Sources */,
+				74AFF99E1703C74B00D8973B /* BandData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

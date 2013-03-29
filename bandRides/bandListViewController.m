@@ -9,6 +9,8 @@
 #import "BandListViewController.h"
 #import "AFNetworking.h"
 #import "BandDetailsViewController.h"
+#import "BandData.h"
+
 
 @interface BandListViewController ()
 
@@ -35,7 +37,18 @@
                                                           [NSURL URLWithString:urlString]]];
     
     [networkOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.bandArray = responseObject[@"results"];
+        self.bandArray = [NSMutableArray new];
+        for (NSDictionary *dict in responseObject[@"results"]){
+            BandData *band = [BandData new];
+            band.bandID = [dict[@"bandID"] intValue];
+            band.description = dict[@"description"];
+            band.name = dict[@"name"];
+            band.soundcloud = dict[@"soundcloud"];
+            band.youTube = dict[@"YouTube"];
+            band.html_contentForApp = dict[@"html_contentForApp"];
+            [self.bandArray addObject:band];
+        }
+        
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);
@@ -70,11 +83,13 @@
     static NSString *CellIdentifier = @"ShowCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSDictionary *band = self.bandArray[indexPath.row];
-    cell.textLabel.text = band[@"name"];
-    cell.detailTextLabel.text = band[@"description"];
-    cell.tag = [band[@"bandID"] intValue];
+    BandData *band = self.bandArray[indexPath.row];
+    cell.textLabel.text = band.name;
+    cell.detailTextLabel.text = band.description;
+    cell.tag = band.bandID;
     
+    
+
     return cell;
 }
 

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BandData.h"
 
 @interface BandDetailsViewController : UIViewController <UIWebViewDelegate>
 
-@property (strong, nonatomic) NSDictionary *band;
+@property (strong, nonatomic) BandData *band;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end

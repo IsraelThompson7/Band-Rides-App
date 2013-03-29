@@ -14,8 +14,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"sup");
-    [self.vc performSegueWithIdentifier:@"viewRidesList" sender:indexPath];
+    //[self.vc performSegueWithIdentifier:@"viewRidesList" sender:indexPath];
     self.path = indexPath;
+    [tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -25,6 +26,9 @@
     return [self.showsArray count];
 }
 
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"showCell"];
@@ -33,12 +37,9 @@
     cell.textLabel.text = show.bandName;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", show.Location_Address, show.Location_City];
     // cell.tag = (NSInteger)show.bandScheduleID;
-    
-    return cell;
-}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [cell.textLabel removeFromSuperview];
+    return cell;
 }
 
 

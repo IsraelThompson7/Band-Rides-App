@@ -12,12 +12,12 @@
 
 @implementation OneBandShowDataSource
 
-- (id)initWithBand:(NSDictionary*)band
+- (id)initWithBand:(BandData*)band
 {
     if (self = [super init]) {
         self.showsArray = nil;
         
-        NSString *urlString = [NSString stringWithFormat:@"http://kluver.homeunix.com:8080/~marc/shows.php?json&bandID=%@", band[@"bandID"]];
+        NSString *urlString = [NSString stringWithFormat:@"http://kluver.homeunix.com:8080/~marc/shows.php?json&bandID=%d", band.bandID];
         
         AFJSONRequestOperation *networkOp = [[AFJSONRequestOperation alloc]
                                              initWithRequest:[[NSURLRequest alloc] initWithURL:

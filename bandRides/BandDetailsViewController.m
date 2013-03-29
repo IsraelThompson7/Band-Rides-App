@@ -33,7 +33,7 @@
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Band Schedule" style:UIBarButtonItemStyleBordered target:self action:@selector(bandScheduleClicked)];
     self.navigationItem.rightBarButtonItem = button;
     
-    [self.webView loadRequest:[[NSURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:self.band[@"soundcloud"]]]];
+    [self.webView loadRequest:[[NSURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:self.band.soundcloud]]];
     
     self.webView.delegate = self;
 }
@@ -42,10 +42,10 @@
 {
     NSString *urlString = request.URL.absoluteString;
     
-    int location = [self.band[@"soundcloud"] rangeOfString:@".com/"].location;
+    int location = [self.band.soundcloud rangeOfString:@".com/"].location;
     
     if (location != NSNotFound) {
-        NSString *matchString = [self.band[@"soundcloud"] substringFromIndex:location];
+        NSString *matchString = [self.band.soundcloud substringFromIndex:location];
         if ([urlString rangeOfString:matchString].location != NSNotFound) {
             return YES;
         }
