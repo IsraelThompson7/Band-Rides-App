@@ -64,4 +64,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+//I added this line to support auto rotation so the table view reloads
+-(void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    [self.tableView reloadData];
+}
+
+//Since its possible to go to a diffrent screen and back in a new orientation so we reload the table by overriding this function
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
 @end

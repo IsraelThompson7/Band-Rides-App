@@ -20,4 +20,8 @@
 @property (strong, nonatomic) NSString *Location_GPS_Lng;
 @property (strong, nonatomic) NSString *bandID;
 
+@property (strong, nonatomic) NSString *venueName;
+@property (strong, nonatomic) NSString *imageUrl;
+
+-(id) initWithDictionary:(NSDictionary*)dict;
 @end

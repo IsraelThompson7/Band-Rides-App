@@ -49,10 +49,5 @@
 	[candidates sortUsingSelector:@selector(compare:)];
 }
 
-- (void)dealloc
-{
-	[candidates release];
-	[super dealloc];
-}	
 
 @end

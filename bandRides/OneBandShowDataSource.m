@@ -29,18 +29,8 @@
             self.showsArray = [NSMutableArray new];
             
             for (NSDictionary *dict in responseObject[@"shows"]) {
-                ShowData *show = [ShowData new];
-                
-                show.bandName = dict[@"bandName"];
-                show.bandImage = dict[@"bandImage"];
-                show.bandScheduleID = dict[@"bandScheduleID"];
-                show.Date = dict[@"Date"];
-                show.Location_Address = dict[@"Location_Address"];
-                show.Location_City = dict[@"Location_City"];
-                show.Location_GPS_Lat = dict[@"Location_GPS_Lat"];
-                show.Location_GPS_Lng = dict[@"Location_GPS_Lng"];
-                show.bandID = dict[@"bandID"];
-                
+                ShowData *show = [[ShowData alloc] initWithDictionary:dict];
+                                
                 [self.showsArray addObject:show];
             }
             
