@@ -46,13 +46,39 @@
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.scrollView addGestureRecognizer:tap];
+    tap.delegate = self;
     
     [self registerForKeyboardNotifications];
     
-    //Disable the navigation back button
-    self.navigationItem.leftBarButtonItem = nil;
+    //I added this button to disable the back button unless they have already registered
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if ([prefs objectForKey:@"userID"] == nil || [prefs objectForKey:@"key"] == nil) {
+        //Disable the navigation back button
+        self.navigationItem.hidesBackButton = YES;
+    }
     
+    self.addressAutocomplete.backgroundColor = [UIColor grayColor];
 }
+
+//This one is called when the screen rotates or when the view first loads
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    if (self.interfaceOrientation == UIInterfaceOrientationLandscapeRight
+        || self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft){
+        //Landscape layout
+    } else {
+        //Portrait layout
+    }
+}
+
+//This one is called when the screen rotates
+-(void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+                                         duration:(NSTimeInterval)duration {
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation
+                                            duration:duration];
+
+}
+
 
 -(void)registerForKeyboardNotifications
 {
@@ -89,11 +115,17 @@
 -(void)textFieldDidBeginEditing:(UITextField*)textField
 {
     self.activeField = textField;
+    if (textField != self.address){
+        self.addressAutocomplete.hidden = YES;
+    }
 }
 
 -(void)textFieldDidEndEditing:(UITextField*)textField
 {
     self.activeField = nil;
+    if (textField == self.address){
+        self.addressAutocomplete.hidden = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -139,9 +171,67 @@
     [self shame];
 }
 
+- (IBAction)editAddressChanged:(UITextField*)sender forEvent:(UIEvent *)event {
+    NSLog(@"%@",sender.text);
+    NSString *geocodeURL = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@&sensor=true",sender.text];
+    
+    AFJSONRequestOperation *networkOp = [[AFJSONRequestOperation alloc]
+                                         initWithRequest:[[NSURLRequest alloc] initWithURL:
+                                                          [NSURL URLWithString:geocodeURL]]];
+    
+    [networkOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        //JSONArray results = jsonResponse.getJSONArray("results");
+        self.autocompleteData = [NSMutableArray new];
+        NSArray *results = responseObject[@"results"];
+        for (NSDictionary *d in results){
+            [self.autocompleteData addObject:d[@"formatted_address"]];
+        }
+        self.addressAutocomplete.hidden = NO;
+        [self.addressAutocomplete reloadData];
+    
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+        
+        
+    }];
+    
+    [networkOp start];
+
+    
+}
+
 -(void)dismissKeyboard
 {
     [self.activeField resignFirstResponder];
 }
 
+-(int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.autocompleteData count];
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"addressCell"];
+    cell.textLabel.text = self.autocompleteData[indexPath.row];
+    cell.textLabel.backgroundColor = [UIColor grayColor];
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *a = self.autocompleteData[indexPath.row];
+    self.address.text = a;
+    self.addressAutocomplete.hidden=YES;
+}
+
+//What I found was that the tap gesture recognizer broke the
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if ([touch.view isDescendantOfView:self.addressAutocomplete]) {
+        
+        // Don't let selections of auto-complete entries fire the
+        // gesture recognizer
+        return NO;
+    }
+    
+    return YES;
+}
 @end

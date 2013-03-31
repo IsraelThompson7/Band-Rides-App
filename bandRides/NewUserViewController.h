@@ -9,10 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "NSString+URLEncoding.h"
 
-//I downloaded this file from http://www.radulucaciu.ro/iphone-autocomplete-class/5/
-#import "Autocomplete.h"
 
-@interface NewUserViewController : UIViewController 
+@interface NewUserViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *name;
 @property (weak, nonatomic) IBOutlet UITextField *phone;
@@ -23,10 +21,14 @@
 @property (weak, nonatomic) UITextField *activeField;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
+
 @property int punched;
 
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
 - (IBAction)submit:(id)sender;
 - (IBAction)punch:(id)sender;
+- (IBAction)editAddressChanged:(id)sender forEvent:(UIEvent *)event;
+@property (weak, nonatomic) IBOutlet UITableView *addressAutocomplete;
+@property (strong, nonatomic) NSMutableArray *autocompleteData;
 @end
