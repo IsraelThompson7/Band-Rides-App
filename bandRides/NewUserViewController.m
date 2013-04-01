@@ -222,7 +222,7 @@
     self.addressAutocomplete.hidden=YES;
 }
 
-//What I found was that the tap gesture recognizer broke the
+//What I found was that the tap gesture recognizer broke the table view's didSelectRowAtIndexPath
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
     if ([touch.view isDescendantOfView:self.addressAutocomplete]) {
