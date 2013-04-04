@@ -18,7 +18,7 @@
     return (__bridge_transfer NSString *) //<-- So here you convert from a non refferance counted string to a refferance counted string 
                                             CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                             (__bridge CFStringRef)self, //<-- Here we convert our refferance counted string to a non refferance counted pointer
-                                            NULL, (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ", CFStringConvertEncodingToNSStringEncoding(encoding));
+                                            NULL, (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ", CFStringConvertNSStringEncodingToEncoding(encoding));
 
 }
 
