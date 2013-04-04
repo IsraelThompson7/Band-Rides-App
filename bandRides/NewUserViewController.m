@@ -178,7 +178,8 @@
 
 - (IBAction)editAddressChanged:(UITextField*)sender forEvent:(UIEvent *)event {
     NSLog(@"%@",sender.text);
-    NSString *geocodeURL = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@&sensor=true",sender.text];
+    NSString *address = [sender.text urlEncodeUsingEncoding:NSUTF8StringEncoding];
+    NSString *geocodeURL = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@&sensor=true", address];
     
     AFJSONRequestOperation *networkOp = [[AFJSONRequestOperation alloc]
                                          initWithRequest:[[NSURLRequest alloc] initWithURL:
