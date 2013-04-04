@@ -8,6 +8,7 @@
 
 #import "NewUserViewController.h"
 #import "AFNetworking.h"
+#import "AppDelegate.h"
 
 
 @interface NewUserViewController ()
@@ -135,11 +136,11 @@
 }
 
 - (IBAction)submit:(id)sender {
-    NSString *name    = [self.name.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *phone   = [self.phone.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *email   = [self.email.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *address = [self.address.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *city    = [self.city.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *name    = [self.name.text urlEncodeUsingEncoding:NSUTF8StringEncoding];
+    NSString *phone   = [self.phone.text urlEncodeUsingEncoding:NSUTF8StringEncoding];
+    NSString *email   = [self.email.text urlEncodeUsingEncoding:NSUTF8StringEncoding];
+    NSString *address = [self.address.text urlEncodeUsingEncoding:NSUTF8StringEncoding];
+    NSString *city    = [self.city.text urlEncodeUsingEncoding:NSUTF8StringEncoding];
     
     NSString *urlString = [NSString stringWithFormat:@"http://kluver.homeunix.com:8080/~marc/user.php?name=%@&cell=%@&email=%@&address=%@&city=%@", name, phone, email, address, city];
     NSLog(@"%@", urlString);
@@ -154,6 +155,10 @@
         [prefs setObject:responseObject[@"userID"] forKey:@"userID"];
         [prefs setObject:responseObject[@"key"] forKey:@"key"];
         [prefs synchronize];
+        
+        AppDelegate *ad = [[UIApplication sharedApplication] delegate];
+        ad.userID = responseObject[@"userID"];
+        ad.key = responseObject[@"key"];
         
         [self.submitButton setEnabled:YES];
         [self.navigationController popViewControllerAnimated:YES];
