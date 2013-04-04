@@ -13,8 +13,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"sup");
-
     //[self.vc performSegueWithIdentifier:@"viewRidesList" sender:indexPath];
     self.path = indexPath;
     [tableView reloadData];
@@ -78,6 +76,8 @@
             ShowDate.frame = CGRectMake(15, 70, 200, 20);
             LocationAddress.frame = CGRectMake(15, 85, 200, 20);
             LocationCity.frame = CGRectMake(15, 100, 200, 20);
+           
+        } else {
             
         }
     } else {

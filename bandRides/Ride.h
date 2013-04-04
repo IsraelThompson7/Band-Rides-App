@@ -15,7 +15,7 @@
 @property (nonatomic,retain) NSString *userCell;
 @property (nonatomic,retain) NSString *userEmail;
 @property (nonatomic,retain) NSString *showAddress;
-@property (nonatomic,retain) NSString *ShowCity;
+@property (nonatomic,retain) NSString *showCity;
 @property (nonatomic,retain) NSString *comments;
 
 @end
