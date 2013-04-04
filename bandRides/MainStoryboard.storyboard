@@ -267,35 +267,86 @@
         <scene sceneID="5qv-pc-Qsd">
             <objects>
                 <viewController restorationIdentifier="BandDetailsViewController" storyboardIdentifier="BandDetailsViewController" id="8k5-Ep-6aH" customClass="BandDetailsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="I8d-Ij-MBq">
+                    <view key="view" contentMode="scaleToFill" id="z2G-6x-jnH">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" id="W4v-EO-0bu">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <webView contentMode="scaleToFill" id="J0E-sK-Hz8">
+                                <rect key="frame" x="0.0" y="-6" width="320" height="399"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="143-4c-rvz">
-                                <rect key="frame" x="0.0" y="411" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Shows" id="oxK-zz-5D8"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ufp-r3-IIA"/>
-                                    <barButtonItem title="Music" id="0UW-IH-8M6"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dFF-Bl-qRK"/>
-                                    <barButtonItem title="Video" id="wb0-IF-tzb"/>
-                                </items>
-                            </toolbar>
+                            <view contentMode="scaleToFill" id="Bmk-fT-ppJ">
+                                <rect key="frame" x="0.0" y="-49" width="320" height="455"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="VpN-P8-BPN">
+                                        <rect key="frame" x="20" y="71" width="149" height="154"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8N4-Q5-DSk">
+                                        <rect key="frame" x="20" y="247" width="149" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Shows">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showsClicked:" destination="8k5-Ep-6aH" eventType="touchUpInside" id="gVg-XF-dNF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jXN-ze-iWO">
+                                        <rect key="frame" x="20" y="319" width="149" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Music">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="musicClicked:" destination="8k5-Ep-6aH" eventType="touchUpInside" id="kTq-pV-mh7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zce-9s-ibW">
+                                        <rect key="frame" x="20" y="392" width="149" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Video">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="videoClicked:" destination="8k5-Ep-6aH" eventType="touchUpInside" id="6V3-kj-gXq"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yWz-7f-N16">
+                                        <rect key="frame" x="177" y="71" width="123" height="364"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="h49-RB-7KR"/>
                     <connections>
-                        <outlet property="musicClicked" destination="0UW-IH-8M6" id="j39-YI-S0p"/>
-                        <outlet property="showsClicked" destination="143-4c-rvz" id="qtZ-L1-7it"/>
-                        <outlet property="videoClicked" destination="wb0-IF-tzb" id="8Xj-4j-Xjc"/>
-                        <outlet property="webView" destination="W4v-EO-0bu" id="jUR-2J-ZOv"/>
+                        <outlet property="descriptionLabel" destination="yWz-7f-N16" id="RIL-Kn-1LY"/>
+                        <outlet property="image" destination="VpN-P8-BPN" id="EhP-NT-bzT"/>
+                        <outlet property="webView" destination="J0E-sK-Hz8" id="FwZ-Nw-Mwb"/>
                         <segue destination="KNE-eC-tLk" kind="push" identifier="segueToShows" id="rOx-eo-it9"/>
                     </connections>
                 </viewController>
@@ -365,9 +416,11 @@
         <class className="BandDetailsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BandDetailsViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="musicClicked" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="showsClicked" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="videoClicked" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="musicClicked:"/>
+                <relationship kind="action" name="showsClicked:" candidateClass="UIButton"/>
+                <relationship kind="action" name="videoClicked:"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
@@ -412,6 +465,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="PiB-GW-iVp"/>
+        <segue reference="rOx-eo-it9"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -66,6 +66,9 @@
         //If this is the row the user selected
         if (self.path.row == indexPath.row) {
             [cell addSubview:LocationAddress];
+           
+        } else {
+            
         }
     } else {
         //Portrait only code
