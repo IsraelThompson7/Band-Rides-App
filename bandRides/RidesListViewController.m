@@ -222,7 +222,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [UIAlertView showAlertWithTitle: @"fdsfsd"
+    [UIAlertView showAlertWithTitle: @"contact"
                             message: @"How to contact"
                   cancelButtonTitle: @"cancel"
                   otherButtonTitles: @[@"Email",@"SMS",@"Call"]
@@ -253,22 +253,26 @@
 -(void) sendMail:(NSDictionary*)ride {
     MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
     controller.mailComposeDelegate = self;
-    [controller setSubject:@"My Subject"];
+    [controller setSubject:@"I want a ride"];
     
     [controller setToRecipients:@[ride[@"userEmail"]]];
-    [controller setMessageBody:@"Hello there." isHTML:NO];
+    NSString *message = [NSString stringWithFormat:@"I need a ride to %@ in %@", ride[@"ShowAddress"], ride[@"ShowCity"]];
+
+    [controller setMessageBody:message isHTML:NO];
     if (controller) [self presentViewController:controller animated:YES completion:^{
         NSLog(@"completed");
     }];
 }
 
 -(void) sendSMS:(NSDictionary*)ride {
-    MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
-    controller.mailComposeDelegate = self;
-    [controller setSubject:@"My Subject"];
+    MFMessageComposeViewController* controller = [[MFMessageComposeViewController alloc] init];
+    controller.messageComposeDelegate = self;
     
-    [controller setToRecipients:@[ride[@"userCell"]]];
-    [controller setMessageBody:@"Hello there." isHTML:NO];
+    [controller setRecipients:@[ride[@"userCell"]]];
+    NSString *message = [NSString stringWithFormat:@"I need a ride to %@ in %@", ride[@"ShowAddress"], ride[@"ShowCity"]];
+    
+    [controller setBody:message];
+    
     if (controller) [self presentViewController:controller animated:YES completion:^{
         NSLog(@"completed");
     }];
