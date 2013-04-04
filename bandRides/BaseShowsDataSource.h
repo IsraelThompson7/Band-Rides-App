@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ShowListViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIImageView+AFNetworking.h"
 
 @interface BaseShowsDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 
