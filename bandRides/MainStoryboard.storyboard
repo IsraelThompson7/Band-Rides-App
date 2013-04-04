@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="DfW-ca-dhR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="DfW-ca-dhR">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -272,14 +272,29 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" id="W4v-EO-0bu">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="143-4c-rvz">
+                                <rect key="frame" x="0.0" y="411" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Shows" id="oxK-zz-5D8"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ufp-r3-IIA"/>
+                                    <barButtonItem title="Music" id="0UW-IH-8M6"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dFF-Bl-qRK"/>
+                                    <barButtonItem title="Video" id="wb0-IF-tzb"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="h49-RB-7KR"/>
                     <connections>
+                        <outlet property="musicClicked" destination="0UW-IH-8M6" id="j39-YI-S0p"/>
+                        <outlet property="showsClicked" destination="143-4c-rvz" id="qtZ-L1-7it"/>
+                        <outlet property="videoClicked" destination="wb0-IF-tzb" id="8Xj-4j-Xjc"/>
                         <outlet property="webView" destination="W4v-EO-0bu" id="jUR-2J-ZOv"/>
                         <segue destination="KNE-eC-tLk" kind="push" identifier="segueToShows" id="rOx-eo-it9"/>
                     </connections>
@@ -350,6 +365,9 @@
         <class className="BandDetailsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BandDetailsViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="musicClicked" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="showsClicked" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="videoClicked" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
