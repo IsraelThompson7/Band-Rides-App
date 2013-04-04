@@ -13,8 +13,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"sup");
-
     //[self.vc performSegueWithIdentifier:@"viewRidesList" sender:indexPath];
     self.path = indexPath;
     [tableView reloadData];

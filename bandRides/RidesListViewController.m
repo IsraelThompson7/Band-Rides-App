@@ -10,7 +10,7 @@
 #import "AFNetworking.h"
 #import "AppDelegate.h"
 #import "ShowData.h"
-#import "UIAlertView+BlockAdditions.h"
+#import "UIActionSheet+BlockAdditions.h"
 #import "Ride.h"
 
 @interface RidesListViewController ()
@@ -61,6 +61,7 @@
             r.userCell = dict[@"userCell"];
             r.userEmail = dict[@"userEmail"];
             r.showAddress = dict[@"ShowAddress"];
+            r.showCity = dict[@"ShowCity"];
             r.comments = dict[@"comments"];
             [self.ridesArray addObject:r];
         }
@@ -222,41 +223,43 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [UIAlertView showAlertWithTitle: @"contact"
-                            message: @"How to contact"
-                  cancelButtonTitle: @"cancel"
-                  otherButtonTitles: @[@"Email",@"SMS",@"Call"]
-                    completionBlock: ^(UIAlertView* alert, NSUInteger buttonIndex ) {
-                        if ( buttonIndex == alert.cancelButtonIndex )
-                        {
-                            
-                        }
-                        else
-                        {
-                            switch (buttonIndex) {
-                                case 1:
-                                    [self sendMail:self.ridesArray[indexPath.row]];
-                                    break;
-                                case 2:
-                                    [self sendSMS:self.ridesArray[indexPath.row]];
-                                    break;
-                                case 3:
-                                    [self call:self.ridesArray[indexPath.row]];
-                                default:
-                                    break;
-                            }
-                        }
-                    }];    
+    [UIActionSheet showActionSheetWithTitle:@"How to Contact"
+                          cancelButtonTitle:@"Cancel"
+                     destructiveButtonTitle:nil
+                          otherButtonTitles:@[@"Email",@"SMS",@"Call"]
+                                     inView:self.view
+                            completionBlock:^(UIActionSheet *sheet, NSUInteger buttonIndex) {
+                                if ( buttonIndex == sheet.cancelButtonIndex )
+                                {
+                                    
+                                }
+                                else
+                                {
+                                    switch (buttonIndex) {
+                                        case 1:
+                                            [self sendMail:self.ridesArray[indexPath.row]];
+                                            break;
+                                        case 2:
+                                            [self sendSMS:self.ridesArray[indexPath.row]];
+                                            break;
+                                        case 3:
+                                            [self call:self.ridesArray[indexPath.row]];
+                                        default:
+                                            break;
+                                    }
+                                }
+                            }];
 }
 
 
--(void) sendMail:(NSDictionary*)ride {
+-(void) sendMail:(Ride*)ride {
+    NSLog(@"sendMail");
     MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
     controller.mailComposeDelegate = self;
     [controller setSubject:@"I want a ride"];
     
-    [controller setToRecipients:@[ride[@"userEmail"]]];
-    NSString *message = [NSString stringWithFormat:@"I need a ride to %@ in %@", ride[@"ShowAddress"], ride[@"ShowCity"]];
+    [controller setToRecipients:@[ride.userEmail]];
+    NSString *message = [NSString stringWithFormat:@"I need a ride to %@ in %@", ride.showAddress, ride.showCity];
 
     [controller setMessageBody:message isHTML:NO];
     if (controller) [self presentViewController:controller animated:YES completion:^{
@@ -264,12 +267,12 @@
     }];
 }
 
--(void) sendSMS:(NSDictionary*)ride {
+-(void) sendSMS:(Ride*)ride {
     MFMessageComposeViewController* controller = [[MFMessageComposeViewController alloc] init];
     controller.messageComposeDelegate = self;
     
-    [controller setRecipients:@[ride[@"userCell"]]];
-    NSString *message = [NSString stringWithFormat:@"I need a ride to %@ in %@", ride[@"ShowAddress"], ride[@"ShowCity"]];
+    [controller setRecipients:@[ride.userCell]];
+    NSString *message = [NSString stringWithFormat:@"I need a ride to %@ in %@", ride.showAddress, ride.showCity];
     
     [controller setBody:message];
     
@@ -278,8 +281,8 @@
     }];
 }
 
--(void) call:(NSDictionary*)ride {
-    NSString *telURL = [NSString stringWithFormat:@"tel:%@",ride[@"userCell"]];
+-(void) call:(Ride*)ride {
+    NSString *telURL = [NSString stringWithFormat:@"tel:%@",ride.userCell];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telURL]];
 }
 
@@ -292,6 +295,19 @@
     }
     [self dismissViewControllerAnimated:YES completion:^{
         NSLog(@"Closed out the mail window");
+    }];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller
+                 didFinishWithResult:(MessageComposeResult)result
+{
+    NSLog(@"SMS result: %d", result);
+    if (result == MessageComposeResultSent) {
+        NSLog(@"SMS Sent!");
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"Closing text window");
     }];
 }
 
