@@ -13,7 +13,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //[self.vc performSegueWithIdentifier:@"viewRidesList" sender:indexPath];
     self.path = indexPath;
     [tableView reloadData];
 }
@@ -24,9 +23,6 @@
     
     return [self.showsArray count];
 }
-
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -76,6 +72,12 @@
             ShowDate.frame = CGRectMake(15, 70, 200, 20);
             LocationAddress.frame = CGRectMake(15, 85, 200, 20);
             LocationCity.frame = CGRectMake(15, 100, 200, 20);
+            
+            UIButton *ridesBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [ridesBtn addTarget:self action:@selector(viewRides) forControlEvents:UIControlEventTouchUpInside];
+            [ridesBtn setTitle:@"View Rides" forState:UIControlStateNormal];
+            ridesBtn.frame = CGRectMake(15, 125, 160, 40);
+            [cell addSubview:ridesBtn];
            
         } else {
             
@@ -121,6 +123,12 @@
             [cell addSubview:LocationAddress];
             [cell addSubview:LocationCity];
             [cell addSubview:BandImage];
+            
+            UIButton *ridesBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [ridesBtn addTarget:self action:@selector(viewRides) forControlEvents:UIControlEventTouchUpInside];
+            [ridesBtn setTitle:@"View Rides" forState:UIControlStateNormal];
+            ridesBtn.frame = CGRectMake(10, 100, 160, 40);
+            [cell addSubview:ridesBtn];
         }
         
     }
@@ -135,6 +143,9 @@
     }
 }
 
-
+- (void)viewRides
+{
+    [self.vc performSegueWithIdentifier:@"viewRidesList" sender:self.path];
+}
 
 @end
