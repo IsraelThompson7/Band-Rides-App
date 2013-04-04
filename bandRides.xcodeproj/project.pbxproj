@@ -10,6 +10,7 @@
 		74AFF9981703B82D00D8973B /* Ride.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AFF9971703B82D00D8973B /* Ride.m */; };
 		74AFF99B1703BF3100D8973B /* UIActionSheet+BlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AFF99A1703BF3100D8973B /* UIActionSheet+BlockAdditions.m */; };
 		74AFF99E1703C74B00D8973B /* BandData.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AFF99D1703C74B00D8973B /* BandData.m */; };
+		74AFF9A1170D083500D8973B /* eye.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 74AFF9A0170D083500D8973B /* eye.jpg */; };
 		A41DB1DF1705574F000E0824 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41DB1DE1705574F000E0824 /* MainStoryboard.storyboard */; };
 		A41DB1E21705576F000E0824 /* NewUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41DB1E11705576F000E0824 /* NewUserViewController.m */; };
 		A41DB1E5170557ED000E0824 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = A41DB1E4170557ED000E0824 /* NSString+URLEncoding.m */; };
@@ -55,6 +56,7 @@
 		74AFF99A1703BF3100D8973B /* UIActionSheet+BlockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+BlockAdditions.m"; sourceTree = "<group>"; };
 		74AFF99C1703C74B00D8973B /* BandData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BandData.h; sourceTree = "<group>"; };
 		74AFF99D1703C74B00D8973B /* BandData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BandData.m; sourceTree = "<group>"; };
+		74AFF9A0170D083500D8973B /* eye.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eye.jpg; sourceTree = "<group>"; };
 		A41DB1DE1705574F000E0824 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A41DB1E01705576F000E0824 /* NewUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUserViewController.h; sourceTree = "<group>"; };
 		A41DB1E11705576F000E0824 /* NewUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserViewController.m; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		F788C94C16CB21FF00D9D550 /* bandRides */ = {
 			isa = PBXGroup;
 			children = (
+				74AFF9A0170D083500D8973B /* eye.jpg */,
 				A41DB1E3170557ED000E0824 /* NSString+URLEncoding.h */,
 				A41DB1E4170557ED000E0824 /* NSString+URLEncoding.m */,
 				A41DB1E01705576F000E0824 /* NewUserViewController.h */,
@@ -308,6 +311,7 @@
 				F788C96C16CB21FF00D9D550 /* second.png in Resources */,
 				F788C96E16CB21FF00D9D550 /* second@2x.png in Resources */,
 				A41DB1DF1705574F000E0824 /* MainStoryboard.storyboard in Resources */,
+				74AFF9A1170D083500D8973B /* eye.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

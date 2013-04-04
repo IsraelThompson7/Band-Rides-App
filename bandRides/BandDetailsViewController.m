@@ -80,4 +80,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)showsClicked:(UIButton *)sender {
+}
+
+- (IBAction)musicClicked:(id)sender {
+}
+
+- (IBAction)videoClicked:(id)sender {
+}
 @end
