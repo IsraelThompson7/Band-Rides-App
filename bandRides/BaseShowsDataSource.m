@@ -85,7 +85,10 @@
         UILabel *BandName = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 320, 20)];
         BandName.text = show.bandName;
         
-        UILabel *ShowVenue = [ [UILabel alloc] initWithFrame:CGRectMake(10, 20, 150, 20)];
+        UIImageView *BandImage = [[UIImageView alloc] initWithFrame:CGRectMake(65, 30, 200, 200)];
+        [BandImage setImageWithURL:[NSURL URLWithString:show.imageUrl]];
+        
+        UILabel *ShowVenue = [ [UILabel alloc] initWithFrame:CGRectMake(10, 30, 150, 20)];
         ShowVenue.text = show.venueName;
         [ShowVenue setFont:[UIFont systemFontOfSize:12]];
         
@@ -93,12 +96,13 @@
         ShowDate.text = show.Date;
         [ShowDate setFont:[UIFont systemFontOfSize:12]];
         
-        UILabel *LocationAddress = [[UILabel alloc] initWithFrame:CGRectMake(10, 50, 320, 20)];
+        UILabel *LocationAddress = [[UILabel alloc] initWithFrame:CGRectMake(10, 45, 320, 20)];
         LocationAddress.text = show.Location_Address;
         [LocationAddress setFont:[UIFont systemFontOfSize:12]];
         
-        UIImageView *BandImage = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-        [BandImage setImageWithURL:[NSURL URLWithString:show.imageUrl]];
+        UILabel *LocationCity = [[UILabel alloc] initWithFrame:CGRectMake(10, 60, 320, 20)];
+        LocationCity.text = show.Location_City;
+        [LocationCity setFont:[UIFont systemFontOfSize:12]];
         
         [cell addSubview:BandName];
         [cell addSubview:ShowDate];
@@ -106,7 +110,17 @@
         
         //If this is the row the user selected
         if (self.path.row == indexPath.row) {
+            
+            
+            BandImage.frame = CGRectMake(65, 30, 200, 200);
+            ShowVenue.frame = CGRectMake(10, 230, 150, 20);
+            ShowDate.frame = CGRectMake(10, 245, 200, 20);
+            LocationAddress.frame = CGRectMake(10, 260, 320, 20);
+            LocationCity.frame = CGRectMake(10, 275, 320, 20);
+            
             [cell addSubview:LocationAddress];
+            [cell addSubview:LocationCity];
+            [cell addSubview:BandImage];
         }
         
     }
@@ -115,7 +129,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.path.row == indexPath.row) {
-        return 200;
+        return 320;
     } else {
         return 50;
     }
